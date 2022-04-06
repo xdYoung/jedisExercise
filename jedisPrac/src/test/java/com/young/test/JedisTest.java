@@ -1,5 +1,6 @@
 package com.young.test;
 
+import com.young.redis.util.JedisConnectionFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,8 +13,10 @@ public class JedisTest {
 
     @BeforeEach
     void setUp() {
-        // 1.建立链接
-        jedis = new Jedis("39.106.198.163", 6379);
+        // 1.建立链接（创建jedis对象的方式）
+//        jedis = new Jedis("39.106.198.163", 6379);
+        // 1.1 使用连接池的方式获取jedis对象的方式
+        jedis = JedisConnectionFactory.getJedis();
         // 2.设置密码
         jedis.auth("123456");
         // 3.选择库
@@ -22,7 +25,7 @@ public class JedisTest {
 
     @Test
     void testString() {
-        String res = null;
+        String res;
         res = jedis.set("name", "young");
         System.out.println("result: " + res);
         res = jedis.set("age", "32");
