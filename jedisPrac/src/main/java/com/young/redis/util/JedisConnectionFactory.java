@@ -21,7 +21,7 @@ public class JedisConnectionFactory {
         // 设置链接池的满后的等待时间
         poolConfig.setMaxWait(Duration.ofSeconds(1));
 
-        jedisPool = new JedisPool(poolConfig, "39.106.198.163", 6379, 1000, "123456");
+        jedisPool = new JedisPool(poolConfig, "******", 6379, 1000, "123456");
     }
 
     public static Jedis getJedis(){

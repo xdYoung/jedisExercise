@@ -14,7 +14,7 @@ public class JedisTest {
     @BeforeEach
     void setUp() {
         // 1.建立链接（创建jedis对象的方式）
-//        jedis = new Jedis("39.106.198.163", 6379);
+//        jedis = new Jedis("******", 6379);
         // 1.1 使用连接池的方式获取jedis对象的方式
         jedis = JedisConnectionFactory.getJedis();
         // 2.设置密码
